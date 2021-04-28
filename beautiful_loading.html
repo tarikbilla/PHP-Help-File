@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading Animation</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="container1" class="container">
+    <div class="ber">
+      <div class="fill"></div>
+    </div>
+    <div class="counter">0%</div>
+    <button>Access Now</button>
+    </div>
+   <div id="output1" class="output">
+    <span class="fa fa-check"></span>
+    <div class="text">Processed has Finished..!!</div>
+    <button>Go</button>
+  </div>
+
+  <script type="text/javascript">
+    let container = document.querySelector(".container");
+    let output = document.querySelector(".output");
+    let fill = document.querySelector(".fill");
+    let click = document.querySelector("button");
+
+    click.addEventListener('click',()=>{
+      
+
+      var a = 0;
+      var run = setInterval(frames,50);
+      function frames(){
+        a = a+1;
+        if (a == 101){
+          clearInterval(run);
+          document.getElementById("container1").style.display = "none";
+          document.getElementById("output1").style.display = "block";
+        }
+        else{
+          var counter = document.querySelector(".counter");
+          counter.textContent = a + "%";
+          fill.style.width = a + "%";
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>
