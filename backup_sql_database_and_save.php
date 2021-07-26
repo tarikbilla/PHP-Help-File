@@ -1,17 +1,9 @@
 <?php
     $dbname   = 'couponthems_net';
 ?>
-<?php 
-$dir    = '/xampp/htdocs/test';
-$files1 = scandir($dir);
-$files2 = scandir($dir, 1);
-
-print_r($files1);
-print_r($files2);
-?>
 
 <form action="" method="post">
-    <input type="submit" name="backup">
+    <input type="submit" name="backup" value="BACKUP">
 </form>
 
 <?php 
@@ -73,7 +65,9 @@ function getBackup(){
     if(!empty($sqlScript))
     {
         // Save the SQL script to a backup file
-        $backup_file_name = $database_name . '_backup_' . date('Y-m-d_His A') . '.sql';
+        mkdir(date('Y'));
+        mkdir(date('Y').'/'.date('m'));
+        $backup_file_name = date('Y').'/'.date('m').'/Bbackup_' . date('Y-m-d_His A') . '.sql';
         $fileHandler = fopen($backup_file_name, 'w+');
         $number_of_lines = fwrite($fileHandler, $sqlScript);
         fclose($fileHandler); 
